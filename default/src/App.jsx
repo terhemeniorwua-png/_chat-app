@@ -6,33 +6,72 @@ import Nav from './Component/Structure/Navbar'
 import Post from './Component/Home/Post'
 import FriendList from './Component/Friends/FriendList'
 import Login from './Component/SignIn/Login'
+import SignUp from './Component/SignIn/SignUp'
 
-const users = []
+
 
 
 
 function App() {
 
+const [isActive, setisActive] = useState(false)
+const [newUser, setNewUser] = useState([])
+
+// Add user
+
+const addUser = (user)=>{
+  setNewUser(prevNewUser=> [
+    ...prevNewUser,
+    user
+  ])
+}
+
+  if(!isActive){
+    return(
+    <Router>
+      <Switch>
+          <Route exact path="/">
+            <Login users={ newUser }/>
+          </Route>
+          <Route exact path="/signup">
+             <SignUp addUser={addUser}/>
+          </Route>
+         
+
+</Switch>
+    </Router>
+
+    )
+  }
+
+
 
 
   return (
+ <>
+
+
+
+
   <Router>
 
-      <Login />
+     
 
-     {/* <Nav />
-      <SideBar /> */}
+     <Nav />
+      <SideBar />
     <Switch>
 
       <Route exact path="/">
-      {/* <Post /> */}
+      <Post />
       </Route>
 
       <Route exact path="/friend">
-        {/* <FriendList /> */}
+        <FriendList />
       </Route>
     </Switch>
   </Router>
+ 
+ </>
     
   )
 }

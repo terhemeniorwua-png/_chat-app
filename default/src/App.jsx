@@ -31,7 +31,7 @@ const addUser = (user)=>{
     <Router>
       <Switch>
           <Route exact path="/">
-            <Login users={ newUser }/>
+            <Login users={ newUser } state={ setisActive }/>
           </Route>
           <Route exact path="/signup">
              <SignUp addUser={addUser}/>
@@ -58,7 +58,7 @@ const addUser = (user)=>{
      
 
      <Nav />
-      <SideBar />
+      <SideBar state={ setisActive }/>
     <Switch>
 
       <Route exact path="/">

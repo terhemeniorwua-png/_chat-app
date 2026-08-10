@@ -1,8 +1,8 @@
-import { FaFacebookMessenger, FaHome, FaUser, FaUserFriends } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaFacebookMessenger, FaHome, FaUser, FaUserFriends } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const SideBar = () => {
+const SideBar = ({state}) => {
     return ( 
 
         <>
@@ -17,6 +17,10 @@ const SideBar = () => {
 
                         <Link to="/" className="flex items-center gap-1 hover:border-b hover:border-dotted "><FaFacebookMessenger /> <span>Message</span></Link>
                         <Link to="/" className="flex items-center gap-1 hover:border-b hover:border-dotted "><FaUser /> <span>Profile</span></Link>
+
+                        <li className="flex items-center gap-1 hover:border-b hover:border-dotted " onClick={()=>{
+                           state(false)
+                        }}><FaArrowAltCircleRight /> <span>Log Out</span></li>
                     
                 </ul>
             </div>

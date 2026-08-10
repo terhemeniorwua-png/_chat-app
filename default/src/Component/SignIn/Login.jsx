@@ -3,7 +3,7 @@ import { FaMoon } from "react-icons/fa";
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const Login = ({users}) => {
+const Login = ({users, state}) => {
 
     const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
@@ -12,12 +12,16 @@ const Login = ({users}) => {
 const handleLogin = (e) =>{
     e.preventDefault()
 
-    const inputed = {phone, password, id:}
-    let userToLogin = newUser.find(user =>{
-        if(!user.phone || !user.password){
-            throw new Error('Not a user? Sign up instead')
+    const inputed = {phone, password}
+    let userToLogin = users.find(user =>{
+        if(user.phone !== inputed.phone|| user.password !== inputed.password){
+            alert('Not a user? Sign up instead')
+            setPassword('')
+            setPhone('')
+            return
         } else{
-
+                state(true)
+                return user
         }
     })
 }

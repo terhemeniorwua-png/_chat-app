@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { FaMoon } from "react-icons/fa";
-import { FaMobileScreenButton } from "react-icons/fa6";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 
 const Login = ({state}) => {
 
     const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
-    const [user, setUser] = useState(false)
 
 const handleLogin = (e) =>{
     e.preventDefault()
@@ -15,19 +13,24 @@ const handleLogin = (e) =>{
     const inputed = {phone, password}
 
     let getUsers = JSON.parse(localStorage.getItem("users"))
-   console.log(getUsers)
+//    console.log(getUsers)
 
-   getUsers.find(user =>{
-        if(user !== inputed){
+   let user = getUsers.find(user =>( user.phone === inputed.phone && user.password === inputed.password ))
+
+
+        if(!user){
             alert("User not found. Sign up!")
+
             setPassword('')
             setPhone('')
-            return false
+
+            return 
         } else{
                 state(true)
                 return user
         }
-    })
+   
+   
 }
 
 

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { FaMobileScreenButton } from "react-icons/fa6";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 
-const SignUp = ({addUser}) => {
+const SignUp = () => {
 
     const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')

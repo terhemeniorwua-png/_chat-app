@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import SideBar from './Component/Structure/SideBar'
 import Nav from './Component/Structure/Navbar'
 import Post from './Component/Home/Post'
 import FriendList from './Component/Friends/FriendList'
 import Login from './Component/SignIn/Login'
 import SignUp from './Component/SignIn/SignUp'
+import SuggestedFriends from './Component/Friends/SuggestedFriends'
 
 
 
@@ -21,9 +22,11 @@ const [isActive, setisActive] = useState(false)
   if(!isActive){
     return(
     <Router>
+       
       <Switch>
           <Route exact path="/">
             <Login state={ setisActive }/>
+            
           </Route>
           <Route exact path="/signup">
              <SignUp />
@@ -58,7 +61,9 @@ const [isActive, setisActive] = useState(false)
       </Route>
 
       <Route exact path="/friend">
+      <SuggestedFriends />
         <FriendList />
+        
       </Route>
     </Switch>
   </Router>

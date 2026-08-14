@@ -15,26 +15,18 @@ import SignUp from './Component/SignIn/SignUp'
 function App() {
 
 const [isActive, setisActive] = useState(false)
-const [newUser, setNewUser] = useState([])
 
-// Add user
 
-const addUser = (user)=>{
-  setNewUser(prevNewUser=> [
-    ...prevNewUser,
-    user
-  ])
-}
 
   if(!isActive){
     return(
     <Router>
       <Switch>
           <Route exact path="/">
-            <Login users={ newUser } state={ setisActive }/>
+            <Login state={ setisActive }/>
           </Route>
           <Route exact path="/signup">
-             <SignUp addUser={addUser}/>
+             <SignUp />
           </Route>
          
 

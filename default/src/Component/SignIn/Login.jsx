@@ -3,7 +3,7 @@ import { FaMoon } from "react-icons/fa";
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const Login = ({users, state}) => {
+const Login = ({state}) => {
 
     const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
@@ -13,12 +13,16 @@ const handleLogin = (e) =>{
     e.preventDefault()
 
     const inputed = {phone, password}
-    let userToLogin = users.find(user =>{
-        if(user.phone !== inputed.phone|| user.password !== inputed.password){
-            alert('Not a user? Sign up instead')
+
+    let getUsers = JSON.parse(localStorage.getItem("users"))
+   console.log(getUsers)
+
+   getUsers.find(user =>{
+        if(user !== inputed){
+            alert("User not found. Sign up!")
             setPassword('')
             setPhone('')
-            return
+            return false
         } else{
                 state(true)
                 return user
@@ -28,8 +32,8 @@ const handleLogin = (e) =>{
 
 
     return (  
-         <div className="border-0 rounded-3xl w-[30%] shadow-2xl text-center lg:mt-36 m-auto pb-5">
-
+         <div className="border-0 rounded-3xl w-[80%] lg:w-[30%] shadow-2xl text-center mt-16 lg:mt-36 m-auto pb-5">
+            
             <div className="bg-[#ed8aff] flex items-center gap-2 justify-center mb-5">
                             <h1 className="py-2">Luna</h1>
                             <FaMoon  className="text-2xl text-amber-200"/>
@@ -52,8 +56,8 @@ const handleLogin = (e) =>{
 
                 <div>
                     <ul className="flex items-center justify-between">
-                        <span className="text-[12px]">Dont't have an account?<Link className="text-[12px] text-blue-400" to="/signup"> Sign Up</Link></span>
-                        <Link className="text-[12px] text-blue-400">Forgotten Password?</Link>
+                        <span className="text-[8px] lg:text-[12px]">Dont't have an account?<Link className="text-[12px] text-blue-400" to="/signup"> Sign Up</Link></span>
+                        <Link className="text-[8px] lg:text-[12px] text-blue-400">Forgotten Password?</Link>
                     </ul>
                 </div>
 

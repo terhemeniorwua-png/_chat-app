@@ -18,9 +18,9 @@ const SideBar = ({state}) => {
                         <Link to="/" className="flex items-center gap-1 hover:border-b hover:border-dotted "><FaFacebookMessenger /> <span>Message</span></Link>
                         <Link to="/" className="flex items-center gap-1 hover:border-b hover:border-dotted "><FaUser /> <span>Profile</span></Link>
 
-                        <li className="flex items-center gap-1 hover:border-b hover:border-dotted " onClick={()=>{
+                        <Link className="flex items-center gap-1 hover:border-b hover:border-dotted " onClick={()=>{
                            state(false)
-                        }}><FaArrowAltCircleRight /> <span>Log Out</span></li>
+                        }}><FaArrowAltCircleRight /> <span>Log Out</span></Link>
                     
                 </ul>
             </div>

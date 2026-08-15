@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+// import GetUsers from "../GetUsers";
 
 const SignUp = () => {
 
@@ -19,7 +20,8 @@ const handleLogin = (e) =>{
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    console.log(users)
+   
+    // { <GetUsers user={users}/> }
 
     let existing = users.find(user=>( user.username === newUser.username && user.phone === newUser.phone ))
 

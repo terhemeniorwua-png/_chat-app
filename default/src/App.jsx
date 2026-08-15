@@ -2,12 +2,13 @@ import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import SideBar from './Component/Structure/SideBar'
-import Nav from './Component/Structure/Navbar'
+import Nav, { MobileNav } from './Component/Structure/Navbar'
 import Post from './Component/Home/Post'
 import FriendList from './Component/Friends/FriendList'
 import Login from './Component/SignIn/Login'
 import SignUp from './Component/SignIn/SignUp'
 import SuggestedFriends from './Component/Friends/SuggestedFriends'
+import LandingPage from './Component/Structure/LandingPage'
 
 
 
@@ -21,10 +22,13 @@ const [isActive, setisActive] = useState(false)
 
   if(!isActive){
     return(
-    <Router>
-       
+  //  <div className='px-5'>
+       <Router>
       <Switch>
           <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route exact path="/Login">
             <Login state={ setisActive }/>
             
           </Route>
@@ -32,32 +36,24 @@ const [isActive, setisActive] = useState(false)
              <SignUp />
           </Route>
          
-
 </Switch>
     </Router>
+  //  </div>
 
     )
   }
 
-
-
-
   return (
  <>
-
-
-
-
-  <Router>
-
-     
-
-     <Nav />
-      <SideBar state={ setisActive }/>
+ 
+      <Router>
+       
     <Switch>
 
       <Route exact path="/">
-      <Post />
+       <MobileNav />
+      <Nav state={setisActive}/>
+
       </Route>
 
       <Route exact path="/friend">

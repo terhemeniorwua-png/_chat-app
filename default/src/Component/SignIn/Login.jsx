@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import SuggestedFriends from "../Friends/SuggestedFriends";
+// import GetUsers from "../GetUsers";
 
 const Login = ({state}) => {
 
@@ -13,7 +15,10 @@ const handleLogin = (e) =>{
     const inputed = {phone, password}
 
     let getUsers = JSON.parse(localStorage.getItem("users"))
-//    console.log(getUsers)
+
+    getUsers.map(user=>
+        <SuggestedFriends username={user.username}/>
+    )
 
    let user = getUsers.find(user =>( user.phone === inputed.phone && user.password === inputed.password ))
 
@@ -64,7 +69,7 @@ const handleLogin = (e) =>{
                     </ul>
                 </div>
 
-                <input type="submit" className="border bg-[#1b002059] pl-2 py-2 w-full text-sm rounded-2xl" required/>
+                <input type="submit" value='Login' className="border bg-[#1b002059] pl-2 py-2 w-full text-sm rounded-2xl" required/>
             </form>
         </div> );
 }

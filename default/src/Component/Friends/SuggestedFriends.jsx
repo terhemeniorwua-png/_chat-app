@@ -1,11 +1,12 @@
 import { FaUser } from "react-icons/fa";
 import Button from "../utilities/Button";
-    
+
 
 const SuggestedFriends = ({username, profileImg}) => {
  
     return ( 
         <>
+        
             <div className="px-[16%] pt-5">
 
                 <h2 className="text-3xl font-black pb-5">People You May Know</h2>

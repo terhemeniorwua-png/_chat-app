@@ -34,6 +34,7 @@ const handleLogin = (e) =>{
             return 
         } else{
                 state(true)
+                user.isActive = true
                 history.push('/')
                 return user
         }
@@ -48,7 +49,7 @@ const handleLogin = (e) =>{
       
         
        
-         <div className="border-0 rounded-3xl w-[80%] lg:w-[30%] shadow-2xl text-center mt-16 lg:mt-36 m-auto pb-5">
+         <div className="border-0 rounded-3xl w-[80%] lg:w-[30%] shadow-2xl text-center mt-32 lg:mt-36 m-auto pb-5">
             
             <div className="bg-[#ed8aff] flex items-center gap-2 justify-center mb-5">
                             <h1 className="py-2">Luna</h1>

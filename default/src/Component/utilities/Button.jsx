@@ -1,9 +1,9 @@
 
 
-const Button = ({value, functionality}) => {
+const Button = ({value, functionality, style}) => {
     return ( 
         <>
-            <button onClick={functionality} className="border border-amber-400 text-gray-700 px-5 py-1 rounded bg-[#9676b469]"> {value} </button>
+            <button onClick={functionality} className={style}> {value} </button>
         </>
      );
 }

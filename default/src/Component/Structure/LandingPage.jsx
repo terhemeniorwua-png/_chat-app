@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import Button from "../utilities/Button";
 
 
-
-
 const LandingPage = () => {
     return ( 
         <>
@@ -28,7 +26,7 @@ const LandingPage = () => {
                     <p>
                         <Link to='/Login'>
                         
-                        <Button value='Get Started' style='border border-amber-400 text-2xl font-black px-5 py-1 rounded bg-white'/> 
+                        <Button value='Get Started' style='border border-amber-400 text-2xl font-black px-5 py-3 rounded-2xl bg-white'/> 
 
                         </Link>
                         </p>

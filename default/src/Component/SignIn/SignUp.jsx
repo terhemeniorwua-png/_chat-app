@@ -16,12 +16,19 @@ const SignUp = () => {
 const handleLogin = (e) =>{
     e.preventDefault()
 
-     const newUser = {username, phone, password, gender}
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
+console.log(users)
+    const newUser = {
+                    key: users.length,
+                    username,
+                    phone, 
+                    password, 
+                    gender
+                }
    
-    // { <GetUsers user={users}/> }
+console.log(newUser)    
 
     let existing = users.find(user=>( user.username === newUser.username && user.phone === newUser.phone ))
 

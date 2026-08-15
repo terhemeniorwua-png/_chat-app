@@ -1,6 +1,6 @@
 import { FaUser } from "react-icons/fa";
 import Button from "../utilities/Button";
-import User from "../user";
+import User from "../User";
 
 
 const SuggestedFriends = ({username, profileImg}) => {

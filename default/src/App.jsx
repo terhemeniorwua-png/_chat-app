@@ -17,7 +17,7 @@ import FooterNav from './Component/Navigations/FooterNav'
 
 function App() {
 
-const [isActive, setisActive] = useState(true)
+const [isActive, setisActive] = useState(false)
 
 
 

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { Link, useHistory } from "react-router-dom";
-import SuggestedFriends from "../Chat/SuggestedFriends";
-import FriendList from "../Chat/FriendList";
+import User from "../User";
 // import GetUsers from "../GetUsers";
 
 const Login = ({state}) => {
@@ -13,8 +12,8 @@ const Login = ({state}) => {
     let history = useHistory()
 
 
-//   let getUsers = JSON.parse(localStorage.getItem("users"))
-//     console.log(getUsers)
+  let getUsers = JSON.parse(localStorage.getItem("users"))
+   getUsers.map(user=><User username={user.username}/>)
 
 const handleLogin = (e) =>{
     e.preventDefault()
@@ -22,12 +21,7 @@ const handleLogin = (e) =>{
     const inputed = {phone, password}
 
     let getUsers = JSON.parse(localStorage.getItem("users"))
-    console.log(getUsers)
-
-    getUsers.map(user=>
-        <FriendList username={user.username}/>
-    )
-
+   
    let user = getUsers.find(user =>( user.phone === inputed.phone && user.password === inputed.password ))
 
 
@@ -49,6 +43,11 @@ const handleLogin = (e) =>{
 
 
     return (  
+        <>
+        
+      
+        
+       
          <div className="border-0 rounded-3xl w-[80%] lg:w-[30%] shadow-2xl text-center mt-16 lg:mt-36 m-auto pb-5">
             
             <div className="bg-[#ed8aff] flex items-center gap-2 justify-center mb-5">
@@ -80,7 +79,9 @@ const handleLogin = (e) =>{
 
                 <input type="submit" value='Login' className="border bg-[#1b002059] pl-2 py-2 w-full text-sm rounded-2xl" required/>
             </form>
-        </div> );
+        </div> 
+    </>
+);
 }
  
 export default Login;  

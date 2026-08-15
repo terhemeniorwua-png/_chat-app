@@ -1,5 +1,5 @@
 
-import RightSideBar from "../Friends/RightSideBar";
+import RightSideBar from "../Chat/RightSideBar";
 import LeftNav from "./LeftNav";
 
 const SideBar = ({state}) => {

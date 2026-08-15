@@ -2,13 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import SideBar from './Component/Structure/SideBar'
-import Nav, { MobileNav } from './Component/Structure/Navbar'
+import Nav, { MobileNav } from './Component/Navigations/Navbar'
 import Post from './Component/Home/Post'
-import FriendList from './Component/Friends/FriendList'
+import FriendList from './Component/Chat/FriendList'
 import Login from './Component/SignIn/Login'
 import SignUp from './Component/SignIn/SignUp'
-import SuggestedFriends from './Component/Friends/SuggestedFriends'
+import SuggestedFriends from './Component/Chat/SuggestedFriends'
 import LandingPage from './Component/Structure/LandingPage'
+import FooterNav from './Component/Navigations/FooterNav'
 
 
 
@@ -16,16 +17,18 @@ import LandingPage from './Component/Structure/LandingPage'
 
 function App() {
 
-const [isActive, setisActive] = useState(false)
+const [isActive, setisActive] = useState(true)
 
 
 
-  if(!isActive){
+  
     return(
   //  <div className='px-5'>
        <Router>
+      
+     {!isActive &&(
       <Switch>
-          <Route exact path="/">
+         <Route exact path="/">
             <LandingPage />
           </Route>
           <Route exact path="/Login">
@@ -35,38 +38,33 @@ const [isActive, setisActive] = useState(false)
           <Route exact path="/signup">
              <SignUp />
           </Route>
+    </Switch>
+     )}
+        { isActive && (
+          <Switch>
+           <Route exact path="/">
+              <MobileNav state={setisActive}/>
+              <Nav />
+               <FriendList />
+              <FooterNav />
+            </Route>
+
+      <Route exact path="/friend">
+      <SuggestedFriends />
+       
+        
+      </Route>
+         </Switch>
+        )
+
+          }
          
-</Switch>
+
     </Router>
   //  </div>
 
     )
-  }
 
-  return (
- <>
- 
-      <Router>
-       
-    <Switch>
-
-      <Route exact path="/">
-       <MobileNav />
-      <Nav state={setisActive}/>
-
-      </Route>
-
-      <Route exact path="/friend">
-      <SuggestedFriends />
-        <FriendList />
-        
-      </Route>
-    </Switch>
-  </Router>
- 
- </>
-    
-  )
 }
 
 export default App

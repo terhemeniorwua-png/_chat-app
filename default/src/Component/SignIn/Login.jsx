@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaMoon } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import SuggestedFriends from "../Friends/SuggestedFriends";
+import { Link, useHistory } from "react-router-dom";
+import SuggestedFriends from "../Chat/SuggestedFriends";
+import FriendList from "../Chat/FriendList";
 // import GetUsers from "../GetUsers";
 
 const Login = ({state}) => {
@@ -9,15 +10,22 @@ const Login = ({state}) => {
     const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
 
+    let history = useHistory()
+
+
+//   let getUsers = JSON.parse(localStorage.getItem("users"))
+//     console.log(getUsers)
+
 const handleLogin = (e) =>{
     e.preventDefault()
 
     const inputed = {phone, password}
 
     let getUsers = JSON.parse(localStorage.getItem("users"))
+    console.log(getUsers)
 
     getUsers.map(user=>
-        <SuggestedFriends username={user.username}/>
+        <FriendList username={user.username}/>
     )
 
    let user = getUsers.find(user =>( user.phone === inputed.phone && user.password === inputed.password ))
@@ -32,6 +40,7 @@ const handleLogin = (e) =>{
             return 
         } else{
                 state(true)
+                history.push('/')
                 return user
         }
    

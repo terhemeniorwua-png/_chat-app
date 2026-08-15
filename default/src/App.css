@@ -5,3 +5,15 @@ h1{
     color: #9676b4;
     
 }
+
+.footNav{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    color: #2d2d2dec;
+}
+
+.footNav:focus{
+    color: #560465ec;
+}

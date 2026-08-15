@@ -6,8 +6,8 @@ import { GiBigGear } from "react-icons/gi";
 const FooterNav = () => {
     return ( 
         <>
-            <nav>
-                <ul className="flex items-center justify-between py-2 px-5 bg-gray-100 rounded-2xl absolute bottom-0 w-full">
+            <nav className=" ">
+                <ul className="flex items-center justify-between py-2 px-5 bg-gray-100 rounded-2xl bottom-0 w-full fixed">
                     <li className="footNav">
                         <FaSignalMessenger />
                         <p>Chat</p>

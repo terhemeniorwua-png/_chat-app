@@ -35,7 +35,7 @@ const Nav = () => {
         <>
 
 
-<div className="mt-8 px-5 fixed">
+<div className="pt-8 px-5 fixed bg-white">
            <div className="flex justify-between items-center text-2xl font-black py-5">
             <h2>
                <FaBars onClick={()=>{

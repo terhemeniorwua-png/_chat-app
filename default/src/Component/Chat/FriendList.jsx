@@ -8,6 +8,7 @@ let loggedInUser = JSON.parse(localStorage.getItem('currentUser'))
 
 
     return ( 
+        <>
         <div className="font-black pt-52 pl-5">
         
         <h4>Welcome back: {loggedInUser.username}</h4>
@@ -20,6 +21,7 @@ let loggedInUser = JSON.parse(localStorage.getItem('currentUser'))
     
         }
         </div>
+        </>
      );
 }
  

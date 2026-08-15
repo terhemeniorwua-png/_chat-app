@@ -13,7 +13,7 @@ const Login = ({state}) => {
 
 
   let getUsers = JSON.parse(localStorage.getItem("users"))
-   getUsers.map(user=><User username={user.username}/>)
+   getUsers?.map(user=><User username={user.username}/>)
 
 const handleLogin = (e) =>{
     e.preventDefault()
@@ -22,7 +22,7 @@ const handleLogin = (e) =>{
 
     let getUsers = JSON.parse(localStorage.getItem("users"))
    
-   let user = getUsers.find(user =>( user.phone === inputed.phone && user.password === inputed.password ))
+   let user = getUsers?.find(user =>( user.phone === inputed.phone && user.password === inputed.password ))
 
 
         if(!user){
@@ -35,6 +35,7 @@ const handleLogin = (e) =>{
         } else{
                 state(true)
                 user.isActive = true
+                localStorage.setItem('currentUser', JSON.stringify(user))
                 history.push('/')
                 return user
         }

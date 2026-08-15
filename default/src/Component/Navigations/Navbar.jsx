@@ -25,8 +25,6 @@ export const MobileNav = ({state}) => {
       </>
     );
 }
- 
-
 
 
 const Nav = () => {
@@ -55,7 +53,7 @@ const Nav = () => {
             <h4> <FaSearch /> </h4>
             <input type="text" placeholder="Search..." className="border-0 outline-0 w-[80%]"/>
            </div>
-</div>
+      </div>
         </>
      );
 }

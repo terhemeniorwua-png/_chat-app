@@ -9,9 +9,10 @@ import Button from "../utilities/Button";
 const LandingPage = () => {
     return ( 
         <>
+        {/* <img src={chatLogo} alt="" /> */}
             <div className="h-screen bg-[#560465ec] flex flex-col items-center justify-around">
 
-                <div className="text-7xl flex flex-col items-center gap-10 ">
+                <div className="text-7xl flex flex-col items-center gap-10 md:gap-5 ">
 
                     <h5 className="text-white text-center text-9xl items-center">
                         <FaFacebookMessenger />
@@ -33,8 +34,8 @@ const LandingPage = () => {
                         </p>
             
                     <p className="text-[#9676b4ec]">
-                        <span className="block">By continuing you agree to our</span>
-                        <span>Terms of Service & Privacy Policy</span>
+                        <span className="max-md:block">By continuing you agree to our</span> 
+                        <span> Terms of Service & Privacy Policy</span>
                     </p>
                 </div>
                

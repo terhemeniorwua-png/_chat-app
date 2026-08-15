@@ -20,7 +20,6 @@ function App() {
 const [isActive, setisActive] = useState(false)
 
 
-
   
     return(
   //  <div className='px-5'>
@@ -42,6 +41,7 @@ const [isActive, setisActive] = useState(false)
      )}
         { isActive && (
           <Switch>
+            
            <Route exact path="/">
               <MobileNav state={setisActive}/>
               <Nav />

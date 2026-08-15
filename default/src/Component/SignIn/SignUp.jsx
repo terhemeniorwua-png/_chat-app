@@ -22,7 +22,7 @@ const handleLogin = (e) =>{
 
 // console.log(users)
     const newUser = {
-                    key: users.length,
+                    id: users.length,
                     username,
                     phone, 
                     password,
@@ -33,7 +33,7 @@ const handleLogin = (e) =>{
                 }
      
 
-    let existing = users.find(user=>( user.username === newUser.username && user.phone === newUser.phone ))
+    let existing = users.find(user=>( user.password === newUser.password && user.phone === newUser.phone ))
 
         if(existing){
 

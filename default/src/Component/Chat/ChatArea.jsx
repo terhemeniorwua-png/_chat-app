@@ -5,7 +5,7 @@ import { useState } from "react";
 import Messages from "./Messages";
 
 
-const ChatArea = () => {
+const ChatArea = ({userId}) => {
 
     const [message, setMessage] = useState('')
 
@@ -19,6 +19,8 @@ const ChatArea = () => {
         }
     ]
 
+    const userClicked = getUsers.find(user => user.id === userId)
+
 //  <Messages />
     return ( 
         <>
@@ -26,16 +28,9 @@ const ChatArea = () => {
             <div className=" flex items-center justify-between pt-5 pb-2 pr-2 bg-[#ef91ff7c] rounded-b-xl">
             <div className="flex text-[#da06ff]">
                     <BiChevronLeft  className="text-5xl"/>
-                   {
-             getUsers
-             .filter(user=> user.id === currentUser.id)
-             .map(user=>(<div key={user.id}>
-                      
-                        <User user={user}/>
-                       
-                        </div>))  
-    
-        }
+                   
+                <div><User user={userClicked.username}/></div>
+            
             </div>
          <div className="text-xl flex items-center gap-5 text-[#da06ff]">
             <FaPhone className="rotate-90"/>

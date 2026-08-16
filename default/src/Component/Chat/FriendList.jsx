@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import User from "../User";
+import ChatArea from "./ChatArea";
 
 
 const FriendList = () => {
@@ -16,11 +17,13 @@ let loggedInUser = JSON.parse(localStorage.getItem('currentUser'))
               {
              getUsers
              .filter(user=> user.id !== loggedInUser.id)
-             .map(user=>(<div key={user.id}>
-                        <Link to="/chat">
-                        <User user={user}/>
-                        </Link>
-                        </div>))  
+             .map(user=>(
+             <div key={user.id} onClick={()=>(
+                <ChatArea userId={user.id}/>
+             )}>
+                <User user={user}/>
+              </div>
+         ))  
     
         }
         </div>

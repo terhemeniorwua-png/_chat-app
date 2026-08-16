@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import User from "../User";
 
 
@@ -9,14 +10,16 @@ let loggedInUser = JSON.parse(localStorage.getItem('currentUser'))
 
     return ( 
         <>
-        <div className="font-black pt-52 pl-5">
+        <div className="font-black pt-52 pl-5 pb-10">
         
         <h4>Welcome back: {loggedInUser.username}</h4>
               {
              getUsers
              .filter(user=> user.id !== loggedInUser.id)
              .map(user=>(<div key={user.id}>
+                        <Link to="/chat">
                         <User user={user}/>
+                        </Link>
                         </div>))  
     
         }

@@ -1,5 +1,4 @@
 
-import RightSideBar from "../Chat/RightSideBar";
 import LeftNav from "./LeftNav";
 
 const SideBar = ({state}) => {
@@ -11,7 +10,6 @@ const SideBar = ({state}) => {
                   <LeftNav userState={state}/>
              <div>
 
-               <RightSideBar />
              </div>
            </div>
         </>

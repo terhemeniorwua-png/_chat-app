@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import SideBar from './Component/Structure/SideBar'
 import Nav, { MobileNav } from './Component/Navigations/Navbar'
-import Post from './Component/Home/Post'
 import FriendList from './Component/Chat/FriendList'
 import Login from './Component/SignIn/Login'
 import SignUp from './Component/SignIn/SignUp'
 import SuggestedFriends from './Component/Chat/SuggestedFriends'
 import LandingPage from './Component/Structure/LandingPage'
 import FooterNav from './Component/Navigations/FooterNav'
+import ChatArea from './Component/Chat/ChatArea'
 
 
 
@@ -17,7 +16,7 @@ import FooterNav from './Component/Navigations/FooterNav'
 
 function App() {
 
-const [isActive, setisActive] = useState(false)
+const [isActive, setisActive] = useState(true)
 
 
   
@@ -42,7 +41,15 @@ const [isActive, setisActive] = useState(false)
         { isActive && (
           <Switch>
             
-           <Route exact path="/">
+          <Route exact path='/'>
+            <ChatArea />
+          </Route>
+
+
+
+
+
+           <Route exact path="/Log">
               <MobileNav state={setisActive}/>
               <Nav />
                <FriendList />

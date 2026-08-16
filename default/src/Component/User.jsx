@@ -9,7 +9,7 @@ const User = (props) => {
                 <div className="bg-[#9676b4ae] p-3 rounded-full">
                     {props.user.profileImg?
                   (<img src={props.user.profileImg} alt="Profile" />)
-                :<FaUser className="text-5xl text-gray-100"/>
+                :<FaUser className="text-3xl text-gray-100"/>
                      } 
                </div>
                

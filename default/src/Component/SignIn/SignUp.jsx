@@ -11,6 +11,7 @@ const SignUp = () => {
     const [username, setusername] =useState('')
     const [gender, setGender] = useState('')
     const [dateOfBirth, setDateOfBirth] = useState('')
+    const [avater, setAvater] = useState('')
 
     // 
 
@@ -22,7 +23,7 @@ const handleLogin = (e) =>{
 
 // console.log(users)
     const newUser = {
-                    id: users.length,
+                    id: crypto.randomUUID(),
                     username,
                     phone, 
                     password,
@@ -54,6 +55,7 @@ const handleLogin = (e) =>{
     setPassword('')
     setGender('')
     setDateOfBirth('')
+    setAvater('')
 }
 
 
@@ -110,6 +112,13 @@ const handleLogin = (e) =>{
                 <input type="password" placeholder="Enter your password" className="border pl-2 py-3 w-full text-sm rounded-2xl"
                 value={password}
                 onChange={(e)=>{setPassword(e.target.value)}}
+                />
+
+                {/* Profile */}
+
+                <input type="text" placeholder="Set your profile(image url)" className="border pl-2 py-3 w-full text-sm rounded-2xl"
+                value={avater}
+                onChange={(e)=>{setAvater(e.target.value)}}
                 />
 
 

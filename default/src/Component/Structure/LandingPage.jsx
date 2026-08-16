@@ -1,4 +1,4 @@
-import { FaMagento, FaMoon } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
 import { FaFacebookMessenger} from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Button from "../utilities/Button";

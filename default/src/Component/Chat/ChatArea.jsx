@@ -3,14 +3,18 @@ import User from "../User";
 import { FaMicrophone, FaPhone, FaVideo } from "react-icons/fa";
 import { useState } from "react";
 import Messages from "./Messages";
+import { useParams } from "react-router-dom";
 
 
-const ChatArea = ({userId}) => {
+const ChatArea = () => {
+
+    const {userId} = useParams()
+
 
     const [message, setMessage] = useState('')
 
     const getUsers = JSON.parse(localStorage.getItem('users'))
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    // const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 
     const conversation = [
         {
@@ -20,6 +24,7 @@ const ChatArea = ({userId}) => {
     ]
 
     const userClicked = getUsers.find(user => user.id === userId)
+    // console.log(userClicked)
 
 //  <Messages />
     return ( 
@@ -29,7 +34,7 @@ const ChatArea = ({userId}) => {
             <div className="flex text-[#da06ff]">
                     <BiChevronLeft  className="text-5xl"/>
                    
-                <div><User user={userClicked.username}/></div>
+                <div><User user={userClicked}/></div>
             
             </div>
          <div className="text-xl flex items-center gap-5 text-[#da06ff]">
@@ -61,6 +66,7 @@ const ChatArea = ({userId}) => {
                         <Messages newMss={message}/>
                         setMessage('')
                      }} className="text-[#da06ff]"/>
+
                    </div>
                    <div className="bg-[#b75dc6ec] p-2 rounded-full text-2xl text-white flex items-center">
                      <FaMicrophone />

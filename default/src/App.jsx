@@ -5,7 +5,6 @@ import Nav, { MobileNav } from './Component/Navigations/Navbar'
 import FriendList from './Component/Chat/FriendList'
 import Login from './Component/SignIn/Login'
 import SignUp from './Component/SignIn/SignUp'
-import SuggestedFriends from './Component/Chat/SuggestedFriends'
 import LandingPage from './Component/Structure/LandingPage'
 import FooterNav from './Component/Navigations/FooterNav'
 import ChatArea from './Component/Chat/ChatArea'
@@ -16,7 +15,7 @@ import ChatArea from './Component/Chat/ChatArea'
 
 function App() {
 
-const [isActive, setisActive] = useState(true)
+const [isActive, setisActive] = useState(false)
 
 
   
@@ -40,31 +39,25 @@ const [isActive, setisActive] = useState(true)
      )}
         { isActive && (
           <Switch>
-            
-          <Route exact path='/'>
-            <ChatArea />
-          </Route>
 
 
-
-
-
-           <Route exact path="/Log">
+           <Route exact path="/">
               <MobileNav state={setisActive}/>
               <Nav />
                <FriendList />
               <FooterNav />
             </Route>
 
-      <Route exact path="/friend">
-      <SuggestedFriends />
-       
+      <Route exact  path="/dm/:userId">
+      {/* <Route > */}
+            <ChatArea />
+          </Route>
         
-      </Route>
+      {/* </Route> */}
          </Switch>
-        )
+         )
 
-          }
+          } 
          
 
     </Router>

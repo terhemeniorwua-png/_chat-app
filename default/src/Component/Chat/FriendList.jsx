@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+
+// import { useHistory } from "react-router-dom";
 import User from "../User";
 import ChatArea from "./ChatArea";
 
 
 const FriendList = () => {
 
-let getUsers = JSON.parse(localStorage.getItem('users'))
-let loggedInUser = JSON.parse(localStorage.getItem('currentUser'))
+    let getUsers = JSON.parse(localStorage.getItem('users'))
+    let loggedInUser = JSON.parse(localStorage.getItem('currentUser'))
 
 
     return ( 
@@ -19,8 +20,10 @@ let loggedInUser = JSON.parse(localStorage.getItem('currentUser'))
              .filter(user=> user.id !== loggedInUser.id)
              .map(user=>(
              <div key={user.id} onClick={()=>(
-                <ChatArea userId={user.id}/>
-             )}>
+
+                <ChatArea />
+
+             )} >
                 <User user={user}/>
               </div>
          ))  
